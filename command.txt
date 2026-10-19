@@ -1,0 +1,1 @@
+docker run --rm -v .:/srv/jekyll -p 4000:4000 jekyll/jekyll:pages jekyll serve --host 0.0.0.0 --watch

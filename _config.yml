@@ -1,0 +1,5 @@
+title: Il mio sito personale
+email: tu@email.com
+description: Un sito statico con Jekyll e GitHub Pages
+owner: Davide Cairoli
+theme: minima # Oppure puoi creare layout personalizzati come visto prima

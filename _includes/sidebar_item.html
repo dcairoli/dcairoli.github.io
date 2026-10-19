@@ -1,0 +1,15 @@
+{% if page.url contains include.url %}
+    {% assign class_name = "active" %}
+{% else %}
+    {% assign class_name = "" %}
+{% endif %}
+
+{% if include.url == "/" and page.url != include.url %}
+    {% assign class_name = "" %}
+{% endif %}
+
+<li>
+    <a href="{{ include.url }}" class="nav-link {{ class_name }}">
+    <i class="fa-solid {{ include.icon }}"></i> {{ include.title }}
+    </a>
+</li>

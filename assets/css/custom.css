@@ -1,0 +1,227 @@
+:root {
+    --font-heading: 'Newsreader', serif;
+    --font-body: 'Inter', sans-serif;
+    --bg-color: #fafafa;
+    --sidebar-bg: #f3f3f3;
+    --text-main: #1a1a1a;
+    --text-muted: #666666;
+    --accent-color: #111111;
+    --border-color: #e5e5e5;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.7;
+}
+
+h1, h2, h3, .brand-font {
+    font-family: var(--font-heading);
+    font-weight: 500;
+}
+
+/* Layout Sidebar + Content */
+.sidebar {
+    width: 260px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--sidebar-bg);
+    border-right: 1px solid var(--border-color);
+    padding: 2.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.main-wrapper {
+    margin-left: 260px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-area {
+    /*max-width: 720px;
+    margin: 0 auto;*/
+    width: 100%;
+    padding: 4rem 2rem;
+    flex-grow: 1;
+}
+
+/* Profilo & Navigazione Sidebar */
+.profile-info img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    filter: grayscale(30%);
+}
+
+.profile-info h1 {
+    font-size: 1.35rem;
+    margin-bottom: 0.2rem;
+    color: var(--text-main);
+}
+
+.profile-info p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 0;
+}
+
+.nav-menu {
+    list-style: none;
+    padding: 0;
+    margin: 2.5rem 0;
+}
+
+.nav-menu li {
+    margin-bottom: 0.4rem;
+}
+
+.nav-menu a {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.nav-menu a:hover, .nav-menu a.active {
+    color: var(--accent-color);
+    background-color: rgba(0, 0, 0, 0.04);
+    font-weight: 500;
+}
+
+.nav-menu a i {
+    width: 20px;
+    margin-right: 10px;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.sidebar-footer {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.social-links a {
+    color: var(--text-muted);
+    margin-right: 12px;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+
+.social-links a:hover {
+    color: var(--accent-color);
+}
+
+/* Stili Pagine & Contenuti */
+.page-section {
+    display: none;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.page-section.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Articoli e Lista */
+.article-card {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.article-card:last-child {
+    border-bottom: none;
+}
+
+.article-meta {
+    font-size: 0.825rem;
+    color: var(--text-muted);
+    margin-bottom: 0.4rem;
+}
+
+.article-title {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.article-title a {
+    color: var(--text-main);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.article-title a:hover {
+    color: #555;
+}
+
+.article-excerpt {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+}
+
+.tag-badge {
+    font-size: 0.75rem;
+    background: #eaeaea;
+    color: #444;
+    padding: 2px 8px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+/* Footer Semplice */
+footer {
+    border-top: 1px solid var(--border-color);
+    padding: 2rem 0;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* Responsive Mobile */
+.mobile-header {
+    display: none;
+    background-color: var(--sidebar-bg);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+    transform: translateX(-100%);
+    }
+
+    .sidebar.open {
+    transform: translateX(0);
+    }
+
+    .main-wrapper {
+    margin-left: 0;
+    }
+
+    .mobile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+
+    .content-area {
+    padding: 2rem 1.25rem;
+    }
+}

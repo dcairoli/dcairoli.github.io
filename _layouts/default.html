@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marco Rossi — {{ page.title }}</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Newsreader (Serif editoriale) e Inter (Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/png" href="/favicon.png" sizes="32x32"></head>
+    <link rel="stylesheet" href="/assets/css/custom.css">
+</head>
+
+<body>
+    <!-- Header visibile solo su Mobile -->
+    <div class="mobile-header align-items-center">
+        <span class="brand-font fw-bold fs-5">Marco Rossi</span>
+        <button class="btn btn-sm btn-outline-dark" id="mobileMenuToggle">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </div>
+
+    <!-- Sidebar a Sinistra -->
+    <aside class="sidebar" id="sidebar">
+        <div>
+            <div class="profile-info">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=250" alt="Avatar">
+            <h1>{{ site.owner }}</h1>
+            <p>Scrivo di tecnologia, design e cultura digitale.</p>
+            </div>
+
+            <ul class="nav-menu">
+                {% include sidebar_item.html url="/" title="Home" icon="fa-house" %}
+                {% include sidebar_item.html url="/articles" title="Articles" icon="fa-newspaper" %}
+                {% include sidebar_item.html url="/projects" title="Projects" icon="fa-code" %}
+                {% include sidebar_item.html url="/about" title="About Me" icon="fa-user" %}
+            </ul>
+        </div>
+
+        <div class="sidebar-footer">
+            <div class="social-links mb-3">
+            <a href="https://github.com/davide-cairoli" title="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="#" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#" title="RSS"><i class="fa-solid fa-rss"></i></a>
+            </div>
+            <p class="mb-0">&copy; 2026 {{ site.owner }}</p>
+        </div>
+    </aside>
+
+    <div class="main-wrapper">
+        <main class="content-area">
+            {{ content }}
+        </main>
+    </div>
+    <!-- <footer>
+        <p>&copy; 2026 - Il mio sito</p>
+    </footer> -->
+</body>
+</html>
